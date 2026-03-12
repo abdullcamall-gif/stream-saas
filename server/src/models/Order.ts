@@ -29,12 +29,11 @@ const OrderSchema = new Schema<IOrder>(
 
 // Gerar número do pedido
 OrderSchema.pre('save', async function (next) {
-  if (!this.isNew) return next();
+  if (!this.isNew) return ;
   const today = new Date();
   const dateStr = today.toISOString().slice(0, 10).replace(/-/g, '');
   const count = await mongoose.model('Order').countDocuments();
   this.orderNumber = `SS-${dateStr}-${String(count + 1).padStart(4, '0')}`;
-  next();
 });
 
 OrderSchema.index({ customer: 1, status: 1 });
