@@ -1,25 +1,17 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const connectDB = async (): Promise<void> => {
+const connectDB = async () => {
+  const mongoUri = process.env.MONGO_URI;
+  if (!mongoUri) {
+    console.error("Erro: MONGO_URI não está definido!");
+    process.exit(1);
+  }
+
   try {
-    const mongoUri = process.env.MONGO_URI;
-    if (!mongoUri) throw new Error('MONGO_URI não definida no ficheiro .env');
-
-    const conn = await mongoose.connect(mongoUri, {
-      serverSelectionTimeoutMS: 5000,
-      socketTimeoutMS: 45000,
-    });
-
+    const conn = await mongoose.connect(mongoUri);
     console.log(`MongoDB conectado: ${conn.connection.host}`);
-
-    mongoose.connection.on('disconnected', () => {
-      console.warn('MongoDB desconectado. Tentando reconectar...');
-    });
-    mongoose.connection.on('error', (err) => {
-      console.error('Erro MongoDB:', err);
-    });
   } catch (error) {
-    console.error('Falha ao conectar ao MongoDB:', error);
+    console.error(`Falha ao conectar ao MongoDB: ${error}`);
     process.exit(1);
   }
 };
