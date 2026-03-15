@@ -54,7 +54,7 @@ export const uploadProof = async (
     });
 
     if (!order) return next(createError('Pedido não encontrado', 404));
-    if (order.status !== 'pending')
+    if (order.status !== 'proof_submitted' && order.status !== 'pending')
       return next(createError('Este pedido já foi processado', 400));
     if (!req.file)
       return next(createError('Nenhum ficheiro enviado', 400));

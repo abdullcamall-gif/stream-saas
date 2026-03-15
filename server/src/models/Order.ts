@@ -10,7 +10,7 @@ const OrderSchema = new Schema<IOrder>(
     amount: { type: Number, required: true, min: 0 },
     paymentMethod: {
       type: String,
-      enum: ['mpesa', 'emola', 'other'],
+      enum: ['mpesa', 'emola', 'other', 'millenium', 'bci' ],
       required: true,
     },
     paymentPhone: { type: String, required: true, trim: true },
@@ -37,7 +37,6 @@ OrderSchema.pre('save', async function (next) {
 });
 
 OrderSchema.index({ customer: 1, status: 1 });
-OrderSchema.index({ orderNumber: 1 });
 OrderSchema.index({ createdAt: -1 });
 
 export const Order = mongoose.model<IOrder>('Order', OrderSchema);
