@@ -3,15 +3,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, Zap, ShieldCheck } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../lib/api';
+import appleMusicLogo from '../../assets/apple-music.jpeg'
+import iptvLogo from '../../assets/iptv.jpeg'
 
 // Logos por nome do serviço
-const SERVICE_LOGOS: Record<string, { logo: string; color: string }> = {
+const SERVICE_LOGOS: Record<string, { logo: string; color: string ; name?: string }> = {
   netflix:     { logo: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg', color: '#E50914' },
   spotify:     { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Spotify_logo_with_text.svg/1280px-Spotify_logo_with_text.svg.png', color: '#1DB954' },
   'prime video': { logo: 'https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg', color: '#00A8E1' },
   'disney+':   { logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg', color: '#006E99' },
   'hbo max':   { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/HBO_Max_2024.svg/640px-HBO_Max_2024.svg.png', color: '#5822B4' },
   crunchyroll: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Crunchyroll_logo_2024.png/1280px-Crunchyroll_logo_2024.png', color: '#F47521' },
+  'apple music': { logo: appleMusicLogo, color: '#00FFFF' },
+  'iptv': { logo: iptvLogo, color: '#00FFFF' },
 };
 
 const getLogo = (name: string) => {

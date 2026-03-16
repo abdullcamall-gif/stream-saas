@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Plus, Trash2, Edit3, Check, X } from 'lucide-react';
 import api from '../../../lib/api';
 
-const SERVICES = ['Netflix', 'Spotify', 'Prime Video', 'Disney+', 'HBO Max', 'Crunchyroll'];
+const SERVICES = ['Netflix', 'Spotify', 'Prime Video', 'Disney+', 'HBO Max', 'Crunchyroll', 'Apple Music', 'IPTV'];
 const DURATIONS = ['Semanal', 'Mensal', 'Trimestral', 'Semestral', 'Anual'];
 
 const emptyForm = { service: SERVICES[0], duration: DURATIONS[1], price: '', description: '', isActive: true };

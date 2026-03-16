@@ -5,7 +5,7 @@ const PlanSchema = new Schema<IPlan>(
   {
     service: {
       type: String,
-      enum: ['Netflix', 'Spotify', 'Prime Video', 'Disney+', 'HBO Max', 'Crunchyroll', 'YouTube Premium', 'Other'],
+      enum: ['Netflix', 'Spotify', 'Prime Video', 'Disney+', 'HBO Max', 'Crunchyroll', 'YouTube Premium', 'Apple Music', 'IPTV'],
       required: true,
     },
     name: { type: String, required: true, trim: true, maxlength: 100 },
