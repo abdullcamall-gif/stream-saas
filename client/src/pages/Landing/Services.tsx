@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, Zap, ShieldCheck } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../lib/api';
-import appleMusicLogo from '../../assets/apple-music.jpeg'
-import iptvLogo from '../../assets/iptv.jpeg'
+import appleMusicLogo from '../../assets/apple-music.png'
+
 
 // Logos por nome do serviço
 const SERVICE_LOGOS: Record<string, { logo: string; color: string ; name?: string }> = {
@@ -15,7 +15,6 @@ const SERVICE_LOGOS: Record<string, { logo: string; color: string ; name?: strin
   'hbo max':   { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/HBO_Max_2024.svg/640px-HBO_Max_2024.svg.png', color: '#5822B4' },
   crunchyroll: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Crunchyroll_logo_2024.png/1280px-Crunchyroll_logo_2024.png', color: '#F47521' },
   'apple music': { logo: appleMusicLogo, color: '#00FFFF' },
-  'iptv': { logo: iptvLogo, color: '#00FFFF' },
 };
 
 const getLogo = (name: string) => {
