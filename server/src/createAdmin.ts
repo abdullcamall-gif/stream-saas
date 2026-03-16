@@ -12,7 +12,7 @@ async function createAdmin() {
     // NÃO use bcrypt.hash aqui. O seu UserSchema.pre('save') já faz isso!
     const admin = new User({
       name: 'Admin',
-      phone: '+258833860166',
+      phone: '+258869227783',
       password: 'admin123', // Senha em texto limpo, o Model vai encriptar
       role: 'admin',
       isActive: true,
@@ -22,7 +22,7 @@ async function createAdmin() {
     
     console.log('---');
     console.log('✅ Admin configurado com sucesso!');
-    console.log('Telefone: +258833860166');
+    console.log('Telefone: +258869227783');
     console.log('Senha: admin123');
     console.log('---');
 
