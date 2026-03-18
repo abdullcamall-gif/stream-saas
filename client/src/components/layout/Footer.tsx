@@ -48,7 +48,7 @@ export const Footer = () => {
             <ul className="space-y-4 text-sm text-text-main/50">
               <li className="flex items-center gap-3">
                 <div className="text-primary"><MessageCircle size={18} /></div>
-                <span>+258 87 810 7200</span>
+                <span>+258 87 922 7783</span>
               </li>
               <li className="flex items-center gap-3">
                 <div className="text-primary"><Mail size={18} /></div>
@@ -77,7 +77,7 @@ export const Footer = () => {
             
             <div className="mt-6 flex items-center justify-center gap-2 text-[10px] text-primary font-bold">
               <ExternalLink size={12} />
-              POWERED BY PAYSUITE
+              NexusDev
             </div>
           </div>
 

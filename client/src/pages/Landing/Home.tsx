@@ -136,7 +136,7 @@ export const Home = () => {
           <div className="mt-16 text-center">
             <p className="text-text-main/20 text-sm font-bold uppercase tracking-widest mb-4">Ainda tem dúvidas?</p>
             <a 
-              href="https://wa.me/258878107200"
+              href="https://wa.me/258869227783"
               className="text-primary font-black uppercase tracking-[0.2em] text-xs hover:tracking-[0.3em] transition-all"
             >
               Contactar Suporte →
