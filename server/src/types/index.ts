@@ -10,7 +10,7 @@ export interface IAuthRequest extends Request {
   user?: IAuthPayload;
 }
 
-export interface IUser extends Document {
+export interface IUser {
   _id: Types.ObjectId;
   name: string;
   phone: string;
@@ -25,7 +25,7 @@ export interface IUser extends Document {
 export type StreamingService = 'netflix' | 'spotify' | 'disney' | 'hbo' | 'youtube' | 'other';
 export type PlanDuration = '1m' | '3m' | '6m' | '12m';
 
-export interface IPlan extends Document {
+export interface IPlan {
   _id: Types.ObjectId;
   service: StreamingService;
   name: string;
@@ -39,7 +39,7 @@ export interface IPlan extends Document {
 
 export type StockStatus = 'available' | 'sold' | 'expired' | 'suspended';
 
-export interface IStock extends Document {
+export interface IStock {
   _id: Types.ObjectId;
   plan: Types.ObjectId;
   email: string;
@@ -54,11 +54,10 @@ export interface IStock extends Document {
   updatedAt: Date;
 }
 
-// proof_submitted = cliente enviou comprovante, aguarda aprovação do admin
 export type OrderStatus = 'pending' | 'proof_submitted' | 'paid' | 'delivered' | 'cancelled' | 'refunded';
 export type PaymentMethod = 'mpesa' | 'emola' | 'other';
 
-export interface IOrder extends Document {
+export interface IOrder {
   _id: Types.ObjectId;
   orderNumber: string;
   customer: Types.ObjectId;
@@ -68,7 +67,7 @@ export interface IOrder extends Document {
   paymentMethod: PaymentMethod;
   paymentPhone: string;
   paymentReference?: string;
-  proofImage?: string;          // ← nome do ficheiro do comprovante
+  proofImage?: string;
   status: OrderStatus;
   paidAt?: Date;
   deliveredAt?: Date;

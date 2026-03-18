@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
 import { IStock } from '../types/index';
 
-export interface IStockDocument extends IStock, Document {}
+export interface IStockDocument extends Omit<IStock, '_id'>, Document {}
 
 const StockSchema = new Schema<IStockDocument>(
   {
@@ -30,17 +30,14 @@ const StockSchema = new Schema<IStockDocument>(
   }
 );
 
-// ✅ Middleware pre-save seguro
 StockSchema.pre<IStockDocument>('save', function (this: IStockDocument, next) {
   if (this.expiresAt < new Date() && this.status === 'available') {
     this.status = 'expired';
   }
 });
 
-// Índices
 StockSchema.index({ plan: 1, status: 1 });
 StockSchema.index({ soldTo: 1 });
 StockSchema.index({ expiresAt: 1 });
 
-// Model
 export const Stock = mongoose.model<IStockDocument>('Stock', StockSchema);
