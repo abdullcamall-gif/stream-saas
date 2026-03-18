@@ -99,7 +99,7 @@ export const approveOrder = async (
     if (!availableStock)
       return next(createError('Sem stock disponível para entregar', 409));
 
-    order.stock = availableStock._id;
+    order.stock = availableStock._id as any;
     order.status = 'delivered';
     order.paidAt = new Date();
     order.deliveredAt = new Date();
