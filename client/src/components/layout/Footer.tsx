@@ -77,7 +77,7 @@ export const Footer = () => {
             
             <div className="mt-6 flex items-center justify-center gap-2 text-[10px] text-primary font-bold">
               <ExternalLink size={12} />
-              NexusDev
+              POWERED BY NexusDev
             </div>
           </div>
 
